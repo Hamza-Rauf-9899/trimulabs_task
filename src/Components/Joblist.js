@@ -1,47 +1,42 @@
+
 import { useContext } from 'react'
 import { Context } from "../Context";
 import { Card, List, Button, Row, Col } from 'antd';
+
+const loadMoreData = () => {
+    if (true) {
+      return;
+    }};
 
 function Joblist() {
     const { jobs_array, setJobs_array } = useContext(Context);
     console.log("inside joblist");
     console.log(jobs_array);
   return (
-    <div>
-    <h1>inside joblist</h1>
-   <h1>{JSON.stringify(jobs_array)}</h1>
-   <Row>
-                <Col>
-                    <Card title="Jobs "  >
-                        
-                    
-                        
+    <div>                
                         <List
                             size="large"
                             bordered
                             dataSource={jobs_array}
-                            renderItem={item => <List.Item key={item.id}>
-                               Title: {item.title} <br></br>
-                               Company: {item.company_name}<br></br>
-                               Commitment: {item.commitmentId}<br></br>
-                              location: {item.location}<br></br>
-                               company email: {item.email}<br></br>
-                               job description: {item.description}<br></br>
-                               Link to apply: <a href={item.applyUrl}>Apply here</a> <br></br>
+                            renderItem={item => <List.Item key={item.id}
+                            >
+                            <Card  title={item.title} extra={<a href="#">More</a>} style={{marginTop: 10,height:'10%',marginRight:'20%',marginLeft:'20%',width:'150%'}}>
+                            <label>Company : </label>  {item.company_name}<br></br>
+                            <label>location :</label> {item.location}<br></br>
+                            <label> company email : </label> {item.email}<br></br>
+                            <label>job description :</label> {item.description}<br></br>
+                            <label>Link to apply :</label> <a href={item.applyUrl}>Click here</a> <br></br>
                                 <Button type="danger" style={{ float: 'right' }} onClick={() => { }}>
                                     Delete
                                 </Button>
                                 <Button type="primary" style={{ float: 'right', marginRight: 7 }} onClick={() => { }}>
                                     Edit
                                 </Button>
+                            </Card>
+
                             </List.Item>}
                         />
-                    </Card>
-                </Col>
-            </Row>
-
     </div>
   )
 }
-
 export default Joblist

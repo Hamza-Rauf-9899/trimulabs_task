@@ -7,7 +7,7 @@
   width: 800px;
   box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
   margin-left: 25%;
-  margin-top: 7%;
+  margin-top: 2%;
   padding-top: 30px;
   padding-bottom: 20px;
   border-radius: 8px;
@@ -18,7 +18,7 @@ label {
   font-weight: 600;
   color: rgb(34, 34, 34);
 }
-header h1 {
+/* header h1 {
   font-size: 70px;
   font-weight: 600;
   background-image: linear-gradient(to left, #553c9a, #b393d3);
@@ -26,7 +26,7 @@ header h1 {
   background-clip: text;
   -webkit-background-clip: text;
   justify-content: center;
-}
+} */
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -62,38 +62,3 @@ header h1 {
   }
 }
 
-/* .Auth-form-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-  height: 100vh;
-}
-
-.Auth-form {
-  width: 420px;
-  box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
-  padding-top: 30px;
-  padding-bottom: 20px;
-  border-radius: 8px;
-  background-color: white;
-}
-
-.Auth-form-content {
-  padding-left: 12%;
-  padding-right: 12%;
-}
-
-.Auth-form-title {
-  text-align: center;
-  margin-bottom: 1em;
-  font-size: 24px;
-  color: rgb(34, 34, 34);
-  font-weight: 800;
-}
-
-label {
-  font-size: 14px;
-  font-weight: 600;
-  color: rgb(34, 34, 34);
-} */
