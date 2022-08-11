@@ -25,7 +25,7 @@ function Joblist() {
                             <label>location :</label> {item.location}<br></br>
                             <label> company email : </label> {item.email}<br></br>
                             <label>job description :</label> {item.description}<br></br>
-                            <label>Link to apply :</label> <a href={item.applyUrl}>Click here</a> <br></br>
+                            <label>Link to apply :</label> <a href={item.applyUrl} target="_blank" >Click here</a> <br></br>
                                 <Button type="danger" style={{ float: 'right' }} onClick={() => { }}>
                                     Delete
                                 </Button>
