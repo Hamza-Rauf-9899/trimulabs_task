@@ -5,7 +5,6 @@ import Jobform from './Components/Jobform';
 import Joblist from './Components/Joblist';
 import { Menu } from 'antd';
 import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/icons';
-import { Form, Input, Select ,Button} from 'antd';
 import {BrowserRouter as Router,Routes,Route,Link} from 'react-router-dom';
 import { ApolloClient, ApolloProvider, InMemoryCache, HttpLink } from '@apollo/client';
 
