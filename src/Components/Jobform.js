@@ -1,7 +1,7 @@
 
 import swal from 'sweetalert';
 import  { useState,useContext } from 'react'
-import { Form, Input, Select ,Button} from 'antd';
+import { Form, Input,Button} from 'antd';
 import { Context } from "../Context";
 import { CREATE_JOB_MUTATION } from '../GraphQL/Mutations';
 import { useMutation } from '@apollo/client';
@@ -26,7 +26,7 @@ function Jobform() {
     const [postJob, { error }] = useMutation(CREATE_JOB_MUTATION);
 
     const postNewJob = async () => {
-        const res = await postJob({
+        const response = await postJob({
             variables: {
                 title: title,
                 commitmentId: "cjtu8esth000z0824x00wtp1i",
@@ -37,13 +37,9 @@ function Jobform() {
                 applyUrl : applyUrl ,
             }
         });
-        if (res) {
+        if (response) {
           console.log("inside response")
-          console.log(res);
-            // swal({
-            //     title: `Job ${res.data.postJob.title} is Successfully Posted`,
-            //     icon: "success",
-            // });
+          console.log(response);
         }
         if (error)
             console.log("Error: ", error);
@@ -55,9 +51,7 @@ function Jobform() {
       values['company_name']="Trimulabs";
       console.log('Success:', values);
       swal("Success!", "Your Job has been posted Successfully!", "success");
-      // jobs_array.push(values);
       jobs_array.push(values);
-      // setItems((prevcount) => prevcount.push(values));
       console.log("inside jobform");
       console.log(jobs_array);
       postNewJob();
@@ -66,13 +60,9 @@ function Jobform() {
   
     const onFinishFailed = (errorInfo) => {
       console.log('Failed:', errorInfo);
-      swal("Error!", "Kindly fill all the required fields!", "error");
+      swal("Error!", "Kindly fill all the Required Fields!", "error");
     };
 
-  // const HandlerOne = () => {
-  //   useNavigate("/joblist");
-  //     // navigate("/joblist");
-  // };
   return (
     <div className="form_data">
 
@@ -134,7 +124,7 @@ function Jobform() {
                   message: 'Please Enter apply Url',
               },
           ]}>
-          <Input placeholder='apply url' onChange={(e) => handleChange(e, setApplyUrl)} />
+          <Input type='url' placeholder='apply url' onChange={(e) => handleChange(e, setApplyUrl)} />
       </Form.Item>
       <Form.Item label="Job Description" name="description" onChange={(e) => handleChange(e, setDescription)}>
           <Input.TextArea placeholder='Job Description' rows={3} />
@@ -149,7 +139,7 @@ function Jobform() {
           <Button type="primary" htmlType="submit">
             Submit
           </Button>
-        </Form.Item>
+      </Form.Item>
     </Form>
     </div>
   )

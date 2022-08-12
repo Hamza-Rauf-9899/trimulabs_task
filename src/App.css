@@ -1,6 +1,5 @@
 .App {
   text-align: center;
-
 }
 .form_data{
   
@@ -18,15 +17,22 @@ label {
   font-weight: 600;
   color: rgb(34, 34, 34);
 }
-/* header h1 {
-  font-size: 70px;
-  font-weight: 600;
-  background-image: linear-gradient(to left, #553c9a, #b393d3);
-  color: transparent;
-  background-clip: text;
+.title_head
+{
+   text-transform: uppercase;
+  background-image: linear-gradient(
+    -225deg,
+    #231557 0%,
+    #44107a 29%,
+    #ff1361 67%,
+    #fff800 100%
+  );
+  animation: textclip 2s linear infinite;
   -webkit-background-clip: text;
-  justify-content: center;
-} */
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+      font-size: 190px;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;

@@ -1,12 +1,7 @@
 
 import { useContext } from 'react'
 import { Context } from "../Context";
-import { Card, List, Button, Row, Col } from 'antd';
-
-const loadMoreData = () => {
-    if (true) {
-      return;
-    }};
+import { Card, List, Button} from 'antd';
 
 function Joblist() {
     const { jobs_array, setJobs_array } = useContext(Context);
@@ -25,7 +20,7 @@ function Joblist() {
                             <label>location :</label> {item.location}<br></br>
                             <label> company email : </label> {item.email}<br></br>
                             <label>job description :</label> {item.description}<br></br>
-                            <label>Link to apply :</label> <a href={item.applyUrl} target="_blank" >Click here</a> <br></br>
+                            <label>Link to apply :</label> <a href={item.applyUrl} target="_blank" rel="noopener noreferrer">Click here</a> <br></br>
                                 <Button type="danger" style={{ float: 'right' }} onClick={() => { }}>
                                     Delete
                                 </Button>

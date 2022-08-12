@@ -22,7 +22,7 @@ function App() {
 
   return (
     <Router>
-    <div className="App" >
+    <div className="App" style={{ backgroundImage: "url(/image_2.jpg)"}} >
     <Menu mode="horizontal" defaultSelectedKeys={['mail']}>
     <Menu.Item key="mail" icon={<MailOutlined />}>
     <Link to="/">Home</Link>
@@ -31,22 +31,13 @@ function App() {
     <Link to="/joblist">Joblist</Link>
     </Menu.Item>
     </Menu>
-    <div><h1 style={{color: 'purple',fontSize:'50px'}}>Job Posting App</h1></div>
-    {/* <ul className="App">
-              <li>
-                <Link to="/">Home</Link>
-              </li>
-              <li>
-                <Link to="/joblist">Joblist</Link>
-              </li>
-            </ul>  */}
-           <Routes>
-                             
-                 <Route exact path='/' element={
-                  <ApolloProvider client={client}>
-                  < Jobform />
-                  </ApolloProvider>}></Route>
-                 <Route exact path='/joblist' element={< Joblist />}></Route>                
+    <div><h1 className="title_head" style={{color: 'purple',fontSize:'50px'}}>Job Posting App</h1></div>
+           <Routes>          
+                  <Route exact path='/' element={
+                    <ApolloProvider client={client}>
+                      < Jobform />
+                    </ApolloProvider>}></Route>
+                  <Route exact path='/joblist' element={< Joblist />}></Route>                
           </Routes>
              </div>
     </Router>
