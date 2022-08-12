@@ -15,17 +15,19 @@ const handleChange = (e, setter) => {
 // const jobs_array = [];
 
 function Jobform() {
+  //getting the context from the parent component and adding job object to the context array
   const { jobs_array, setJobs_array } = useContext(Context);
     const [title, setTitle] = useState('');
-    // const [commitmentId, setCommitmentId] = useState('');
     const [location, setLocation] = useState('');
     const [email, setEmail] = useState('');
     const [description, setDescription] = useState('');
     const [applyUrl, setApplyUrl] = useState('');
 
+    //get the mutation object from the apollo client and pass the mutation object to the mutation hook
     const [postJob, { error }] = useMutation(CREATE_JOB_MUTATION);
 
     const postNewJob = async () => {
+      //run mutation as an async await function and pass the variables to the mutation object
         const response = await postJob({
             variables: {
                 title: title,
@@ -37,35 +39,33 @@ function Jobform() {
                 applyUrl : applyUrl ,
             }
         });
+        //if job posted and response was successful
         if (response) {
-          console.log("inside response")
-          console.log(response);
+          swal("Success!", "Your Job has been posted Successfully!", "success");
+
         }
-        if (error)
-            console.log("Error: ", error);
+        //if job was not posted and response was not successful
+        if (error){
+          swal("Error!", "Your Job has not been posted!", "error");
+        }
 
     }
   
-  
-    const onFinish = (values) => {
+    //after form validation if success
+    const onSubmit_Success = (values) => {
       values['company_name']="Trimulabs";
-      console.log('Success:', values);
-      swal("Success!", "Your Job has been posted Successfully!", "success");
       jobs_array.push(values);
-      console.log("inside jobform");
-      console.log(jobs_array);
       postNewJob();
     
     };
-  
-    const onFinishFailed = (errorInfo) => {
-      console.log('Failed:', errorInfo);
+  //after form validation if Failed
+    const onSubmit_Failed = (errorInfo) => {
       swal("Error!", "Kindly fill all the Required Fields!", "error");
     };
 
   return (
     <div className="form_data">
-
+    {/* Get from data to post a job*/}
     <Form 
         name="basic"
         labelCol={{
@@ -77,8 +77,8 @@ function Jobform() {
         initialValues={{
           remember: true,
         }}
-        onFinish={onFinish}
-        onFinishFailed={onFinishFailed}
+        onFinish={onSubmit_Success}
+        onFinishFailed={onSubmit_Failed}
         autoComplete="off"
         auto-cleanup="on"
       >

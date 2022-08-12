@@ -4,7 +4,7 @@ import React from 'react'
 import Jobform from './Components/Jobform';
 import Joblist from './Components/Joblist';
 import { Menu } from 'antd';
-import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/icons';
+import { MailOutlined, AppstoreOutlined } from '@ant-design/icons';
 import {BrowserRouter as Router,Routes,Route,Link} from 'react-router-dom';
 import { ApolloClient, ApolloProvider, InMemoryCache, HttpLink } from '@apollo/client';
 
@@ -22,6 +22,7 @@ function App() {
   return (
     <Router>
     <div className="App" style={{ backgroundImage: "url(/image_2.jpg)"}} >
+    {/* Navigation Bar */}
     <Menu mode="horizontal" defaultSelectedKeys={['mail']}>
     <Menu.Item key="mail" icon={<MailOutlined />}>
     <Link to="/">Home</Link>
@@ -31,9 +32,11 @@ function App() {
     </Menu.Item>
     </Menu>
     <div><h1 className="title_head" style={{color: 'purple',fontSize:'50px'}}>Job Posting App</h1></div>
+    {/* Defining Routes*/}
            <Routes>          
                   <Route exact path='/' element={
                     <ApolloProvider client={client}>
+                    {/* provide the apollo client to the jobform*/}
                       < Jobform />
                     </ApolloProvider>}></Route>
                   <Route exact path='/joblist' element={< Joblist />}></Route>                

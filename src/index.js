@@ -8,8 +8,8 @@ import { ContextProvider } from './Context';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+  {/* wrapping the App component to provide the context */}
   <ContextProvider><App /></ContextProvider>
-    {/* <App /> */}
   </React.StrictMode>
 );
 
